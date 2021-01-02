@@ -13,13 +13,13 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::get();
-        return view('admin.sales.index', compact('sales'));
+        return view('sales.index', compact('sales'));
     }
 
     public function create()
     {
         $clients = Client::get();
-        return view('admin.sales.create', compact('clients'));
+        return view('sales.create', compact('clients'));
     }
 
     public function store(StoreRequest $request)
@@ -38,12 +38,12 @@ class SaleController extends Controller
 
     public function show(Sale $sale)
     {
-        return view('admin.sales.show', compact('sale'));
+        return view('sales.show', compact('sale'));
     }
 
     public function edit(Sale $sale)
     {
-        return view('admin.sales.edit', compact('sale'));
+        return view('sales.edit', compact('sale'));
     }
 
     public function update(UpdateRequest $request, Sale $sale)

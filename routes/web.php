@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.admin');
+    return view('demo');
 });
+
+Route::resource('categories', 'CategoryController');
+Route::resource('clients', 'ClientController');
+Route::resource('products', 'ProductController');
+Route::resource('providers', 'ProviderController');
+Route::resource('purchases', 'PurchaseController');
+Route::resource('sales', 'SaleController');

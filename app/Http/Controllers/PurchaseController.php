@@ -13,13 +13,13 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases = Purchase::get();
-        return view('admin.purchases.index', compact('purchases'));
+        return view('purchases.index', compact('purchases'));
     }
 
     public function create()
     {
         $providers = Provider::get();
-        return view('admin.purchases.create', compact('providers'));
+        return view('purchases.create', compact('providers'));
     }
 
     public function store(StoreRequest $request)
@@ -28,7 +28,7 @@ class PurchaseController extends Controller
         foreach ($request->product_id as $key => $product) {
             $results[] = array("product_id" => $request->product_id[$key],
                                "quantity" => $request->quantity[$key],
-                               "price" => $request->price[$key]
+                               "price" => $request->price[$key],
                         );
         }
         $purchase->purchaseDetails()->createMany($results)
@@ -37,12 +37,12 @@ class PurchaseController extends Controller
 
     public function show(Purchase $purchase)
     {
-        return view('admin.purchases.show', compact('purchase'));
+        return view('purchases.show', compact('purchase'));
     }
 
     public function edit(Purchase $purchase)
     {
-        return view('admin.purchases.edit', compact('purchase'));
+        return view('purchases.edit', compact('purchase'));
     }
 
     public function update(UpdateRequest $request, Purchase $purchase)

@@ -12,12 +12,12 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::get();
-        return view('admin.categories.index', compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('admin.categories.create');
+        return view('categories.create');
     }
 
     public function store(StoreRequest $request)
@@ -28,12 +28,12 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('admin.categories.show', compact('category'));
+        return view('categories.show', compact('category'));
     }
 
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('categories.edit', compact('category'));
     }
 
     public function update(UpdateRequest $request, Category $category)

@@ -6,3 +6,5 @@
   <script src="{{ asset('assets/js/settings.js')}}"></script>
   <script src="{{ asset('assets/js/todolist.js')}}"></script>
   <script src="{{ asset('assets/js/dashboard.js')}}"></script>
+
+  @yield('scripts')
