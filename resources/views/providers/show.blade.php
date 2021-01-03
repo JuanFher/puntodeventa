@@ -28,7 +28,11 @@
                         <p>Descripcion del proveedor </p>
                         <div class="d-flex justify-content-between">
                           <a href="{{ route('providers.edit', $provider) }}" class="btn btn-success">Editar</a>
-                          <a href="#" class="btn btn-success">Activar/Desactivar</a>
+                          @if ($provider->status == 'ACTIVE')
+                            <a href="#" class="btn btn-danger">DESACTIVAR</a>
+                          @else
+                            <a href="#" class="btn btn-success">ACTIVAR</a>
+                          @endif
                         </div>
                       </div>
                       
@@ -38,7 +42,11 @@
                             Estado
                           </span>
                           <span class="float-right text-muted">
-                            {{ $provider->status }}
+                            @if ($client->status == 'ACTIVE')
+                              ACTIVO
+                            @else
+                              DESACTIVO
+                            @endif
                           </span>
                         </p>
                         <p class="clearfix">

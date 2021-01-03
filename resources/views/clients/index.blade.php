@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'Lista de Productos')
+@section('title', 'Lista de Clientes')
 @section('styles')
   <style type="text/css">
     .unstyled-button{
@@ -13,28 +13,27 @@
 	<div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-              Lista de Productos
+              Lista de Clientes
             </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Productos</li>
+                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
               </ol>
             </nav>
           </div>
           <div class="card">
             <div class="card-body">
-              @include('common.alerts')
-              @include('common.messages')
+              
               <div class="d-flex justify-content-between">
                 <div>
-                  <h3>Productos</h3>
+                  <h3>Clientes</h3>
                 </div>
                 <div>
                   <a href="#" class="btn btn-success">
                     <i class="fas fa-download"></i>
                   </a>
-                  <a href="{{ route('products.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a >
+                  <a href="{{ route('clients.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a >
                 </div>
               </div><br>
               <div class="row">
@@ -43,33 +42,30 @@
                     <table id="order-listing" class="table">
                       <thead>
                         <tr>
-                            <th>CÓDIGO</th>
+                          
+                            <th>ID</th>
                             <th>NOMBRE</th>
-                            <th>STOCK</th>
-                            <th>PRECIO</th>
+                            <th>DOCUMENTO</th>
+                            <th>TELEFONO</th>
+                            <th>EMAIL</th>
                             <th>ESTADO</th>
-                            <th>CATEGORÍA</th>
-                            <th>PROVEEDOR</th>
                             <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($products as $product)
+                        @foreach ($clients as $client)
                         	<tr>
-                            
-                            <td scope="row">{{ $product->code }}</td>
+                            <td>{{ $client->id }}</td>
                             <td>
-                              <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
-                              
+                              <a href="{{ route('clients.show', $client) }}">{{ $client->name }}</a>
                             </td>
-                            <td>{{ $product->stock }}</td>
-                            <td>{{ $product->sell_price }}</td>
-                            <td>{{ $product->status }}</td>
-                            <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->provider->name }}</td>
+                            <td>{{ $client->document }}</td>
+                            <td>{{ $client->phone }}</td>
+                            <td>{{ $client->email }}</td>
+                            <td>{{ $client->status }}</td>
                             <td>
-                              {!! Form::open(['route' => ['products.destroy', $product ], 'method' => 'DELETE']) !!}
-                                 <a href="{{ route('products.edit', $product) }}" title="Editar" class="jsgrid-button jsgrid-edit-button">
+                              {!! Form::open(['route' => ['clients.destroy', $client ], 'method' => 'DELETE']) !!}
+                                 <a href="{{ route('clients.edit', $client) }}" title="Editar" class="jsgrid-button jsgrid-edit-button">
                                    <i class="far fa-edit"></i>
                                  </a>
                                  <button title="Eliminar" class="jsgrid-button jsgrid-delete-button unstyled-button">

@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'name'=> 'required|string|max:200', 
             'document'=> 'required|string|max:13|unique:clients,document,'.$this->route('client')->id,
             'address'=> 'string|max:150',
-            'phone'=> 'string|max:40',
+            'phone'=> 'max:40',
             'email'=> 'email|string|max:100', 
             
         ];
@@ -39,11 +39,11 @@ class UpdateRequest extends FormRequest
             'name.required' => 'Se requiere un nombre para el cliente',
             'name.string' => 'Se requiere ingresar caracteres alfanumericos',
             'name.max' => 'Solo se permite máximo 200 caracteres',
-            'documento.string' => 'Se requiere ingresar caracteres alfanumericos',
-            'documento.max' => 'Solo se permite máximo 150 caracteres',
+            'document.string' => 'Se requiere ingresar caracteres alfanumericos',
+            'document.max' => 'Solo se permite máximo 150 caracteres',
             'address.string' => 'Se requiere ingresar caracteres alfanumericos',
             'address.max' => 'Solo se permite máximo 150 caracteres',
-            'phone.string' => 'Se requiere ingresar caracteres alfanumericos',
+            
             'phone.max' => 'Solo se permite máximo 150 caracteres',
             'email.email' => 'El formato debe ser de tipo email',
             'email.string' => 'Se requiere ingresar caracteres alfanumericos',

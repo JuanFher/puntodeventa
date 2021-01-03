@@ -43,7 +43,7 @@
                             Estado
                           </span>
                           <span class="float-right text-muted">
-                            @if ($product->status == 'ACTIVE')
+                          @if ($product->status == 'ACTIVE')
                             ACTIVO
                           @else
                             DESACTIVO
