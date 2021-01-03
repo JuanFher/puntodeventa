@@ -20,6 +20,8 @@ class CreateProvidersTable extends Migration
             $table->string('ruc_number');
             $table->string('address')->nullable();
             $table->string('phone');
+            $table->enum('status', ['ACTIVE', 'DEACTIVATED'])->default('ACTIVE');
+            $table->string('logo')->nullable();
 
             $table->timestamps();
         });

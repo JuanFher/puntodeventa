@@ -9,6 +9,7 @@ use App\Product;
 use App\Provider;
 use Illuminate\Http\Request;
 
+
 class ProductController extends Controller
 {
     public function index()
@@ -24,15 +25,29 @@ class ProductController extends Controller
         return view('products.create', compact('providers', 'categories'));
     }
 
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        Product::create($request->all());
+         $validated = $request->validate([
+            'code' => 'required',
+            'name' => 'required',
+            'sell_price' => 'required',
+            
+        ]);
+        
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/image"), $image_name);
+        }
+        Product::create($request->all() + [
+            'image' => $image_name,
+        ]);
         return redirect()->route('products.index');
     }
 
     public function show(Product $product)
     {
-        return view('products.show', compact('product', 'providers', 'categories'));
+        return view('products.show', compact('product'));
     }
 
     public function edit(Product $product)
@@ -44,7 +59,14 @@ class ProductController extends Controller
 
     public function update(UpdateRequest $request, Product $product)
     {
-        $product->update($request->all());
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/image"), $image_name);
+        }
+        $product->update($request->all()+ [
+            'image' => $image_name,
+        ]);
         return redirect()->route('products.index');
     }
 

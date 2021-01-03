@@ -12,22 +12,9 @@
 @section('content')
 	<div class="content-wrapper">
           <div class="page-header">
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item d-none d-lg-flex">
-                <a class="nav-link" href="{{ route('providers.create') }}">
-                  <span class="btn btn-primary">+ Crear </span>
-                </a>
-                
-                <a class="nav-link ml-2" href="#">
-                  <span class="btn btn-success"><i class="fas fa-download"></i> Exportar</span>
-                </a>
-              </li>
-              
-            </ul>
             <h3 class="page-title">
               Lista de Proveedores
             </h3>
-            
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
@@ -37,8 +24,18 @@
           </div>
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Proveedores</h4>
-
+              
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h3>Proveedores</h3>
+                </div>
+                <div>
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a href="{{ route('providers.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a >
+                </div>
+              </div><br>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -46,16 +43,25 @@
                       <thead>
                         <tr>
                             <th>ID</th>
+                            {{-- <th>LOGO</th> --}}
                             <th>NOMBRE</th>
                             <th>RUC</th>
                             <th>EMAIL</th>
                             <th>TELEFONO</th>
+                            <th>ESTADO</th>
                             <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach ($providers as $provider)
                         	<tr>
+                            {{-- <td> --}}
+                               {{--  @if ( $r->logo )
+                                  <img src="images/users/{{ $r->logo }}" alt="" class="rounded" height="40">
+                                @else
+                                  <img src="images/users/user.png" alt="" class="rounded" height="40">
+                                @endif --}}
+                            {{-- </td> --}}
                             <td scope="row">{{ $provider->id }}</td>
                             <td>
                               <a href="{{ route('providers.show', $provider) }}">{{ $provider->name }}</a>
@@ -64,6 +70,7 @@
                             <td>{{ $provider->ruc_number }}</td>
                             <td>{{ $provider->email }}</td>
                             <td>{{ $provider->phone }}</td>
+                            <td>{{ $provider->status }}</td>
                             <td>
                               {!! Form::open(['route' => ['providers.destroy', $provider ], 'method' => 'DELETE']) !!}
                                  <a href="{{ route('providers.edit', $provider) }}" title="Editar" class="jsgrid-button jsgrid-edit-button">

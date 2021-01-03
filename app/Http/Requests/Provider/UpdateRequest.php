@@ -25,10 +25,10 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'email' => 'email|string|max:150|unique:providers,email,'.$this->route('provider')->id.,
-            'ruc_number' => 'required|string|max:13|min:10|unique:providers,ruc_number,'.$this->route('provider')->id.,
+            'email' => 'email|string|max:150|unique:providers,email,'.$this->route('provider')->id,
+            'ruc_number' => 'required|string|max:13|min:10|unique:providers,ruc_number,'.$this->route('provider')->id,
             'address' => 'string|max:250',
-            'phone' => 'required|string|max:20|unique:providers,phone,'.$this->route('provider')->id.,
+            'phone' => 'required|string|max:20|unique:providers,phone,'.$this->route('provider')->id,
         ];
     }
 

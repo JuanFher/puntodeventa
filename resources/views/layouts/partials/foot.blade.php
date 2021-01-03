@@ -6,5 +6,7 @@
   <script src="{{ asset('assets/js/settings.js')}}"></script>
   <script src="{{ asset('assets/js/todolist.js')}}"></script>
   <script src="{{ asset('assets/js/dashboard.js')}}"></script>
+  <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>     
+  <script src="{{ asset('assets/js/toast.js') }}"> </script>
 
   @yield('scripts')

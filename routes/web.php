@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('demo');
+    return view('base');
 });
 
 Route::resource('categories', 'CategoryController');

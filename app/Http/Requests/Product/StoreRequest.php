@@ -25,7 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100|unique:products',
-            'image' => 'required|dimentions:min_width=150,min_height=150',
             'sell_price' => 'required',
             'category_id' => 'required|integer|exists:App\Category,id',
             'provider_id' => 'required|integer|exists:App\Provider,id',
@@ -35,12 +34,11 @@ class StoreRequest extends FormRequest
     {
         return[
             'name.required' => 'Se requiere un nombre para este proveedor',
-            'name.unique' => 'SEl producto ingresado ya esta registrado',
+            'name.unique' => 'El producto ingresado ya esta registrado',
             'name.string' => 'Se requiere ingresar caracteres alfanumericos',
             'name.max' => 'Solo se permite máximo 100 caracteres',
 
-            'image.required' => 'Se requiere un image para el proveedor',
-            'image.dimensions' => 'Solo se permite imagenes de 150x150',
+            
           
             'category_id.required' => 'Se requiere una categoria',
             'category_id.integer' => 'Se requiere ingresar caracteres numericos',

@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.addons.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
   @yield('styles')
   <link rel="stylesheet" href="{{ asset('assets/images/favicon.png')}}">
 </head>
