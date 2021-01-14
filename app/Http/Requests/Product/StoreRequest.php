@@ -26,6 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:100|unique:products',
             'sell_price' => 'required',
+            'buy_price' => 'required',
             'category_id' => 'required|integer|exists:App\Category,id',
             'provider_id' => 'required|integer|exists:App\Provider,id',
         ];

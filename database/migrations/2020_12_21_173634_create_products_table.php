@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock')->default(0);
             $table->string('image')->nullable();
             $table->decimal('sell_price',12,2);
+            $table->decimal('buy_price',12,2);
             $table->enum('status', ['ACTIVE', 'DEACTIVATED'])->default('ACTIVE');
             $table->foreignId('category_id')->constrained();
             $table->foreignId('provider_id')->constrained();

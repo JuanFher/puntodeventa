@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
+  @livewireStyles
   @yield('styles')
   <link rel="stylesheet" href="{{ asset('assets/images/favicon.png')}}">
 </head>

@@ -17,8 +17,9 @@ class CreatePurchaseDetailsTable extends Migration
             $table->id();
             $table->foreignId('purchase_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->decimal('sell_price',10,2);
+            $table->decimal('buy_price',10,2);
             $table->integer('quantity');
-            $table->decimal('price',10,2);
             $table->timestamps();
         });
     }

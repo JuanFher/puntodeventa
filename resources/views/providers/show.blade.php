@@ -42,10 +42,10 @@
                             Estado
                           </span>
                           <span class="float-right text-muted">
-                            @if ($client->status == 'ACTIVE')
+                            @if ($provider->status == 'ACTIVE')
                               ACTIVO
                             @else
-                              DESACTIVO
+                              INACTIVO
                             @endif
                           </span>
                         </p>

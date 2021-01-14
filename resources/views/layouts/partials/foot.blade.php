@@ -1,3 +1,5 @@
+<script src="{{ asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+  
 <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <script src="{{ asset('assets/vendors/js/vendor.bundle.addons.js')}}"></script>
   <script src="{{ asset('assets/js/off-canvas.js')}}"></script>
@@ -7,6 +9,5 @@
   <script src="{{ asset('assets/js/todolist.js')}}"></script>
   <script src="{{ asset('assets/js/dashboard.js')}}"></script>
   <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>     
-  <script src="{{ asset('assets/js/toast.js') }}"> </script>
-
-  @yield('scripts')
+  @livewireScripts
+@yield('scripts')

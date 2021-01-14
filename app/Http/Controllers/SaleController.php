@@ -32,7 +32,7 @@ class SaleController extends Controller
                                "discount" => $request->discount[$key]
                         );
         }
-        $sale->saleDetails()->createMany($results)
+        $sale->saleDetails()->createMany($results);
         return redirect()->route('sales.index');
     }
 
