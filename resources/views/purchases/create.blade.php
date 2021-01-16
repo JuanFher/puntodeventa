@@ -17,6 +17,11 @@
               </ol>
             </nav>
           </div>
+          @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
           <div class="card">
             <div class="card-body">
               {!! Form::open(['route'=>'purchases.store', 'method'=>'POST']) !!}
@@ -43,9 +48,9 @@
     {!! Html::script('assets/js/avgrund.js') !!}
     {!! Html::script('assets/js/toastr.min.js') !!}
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
   window.addEventListener('alertaerrores', event =>{
-    toastr.error("No has seleccionado un producto", "Administracion",{
+    toastr.error("ingrese datos en todos los campos", "Agregar Item",{
       "timeOut": "3000"
     });
   });
@@ -61,5 +66,5 @@
     });
   });
 
-</script>
+</script> --}}
 @endsection

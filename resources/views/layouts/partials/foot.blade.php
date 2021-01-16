@@ -11,3 +11,12 @@
   <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>     
   @livewireScripts
 @yield('scripts')
+<script>
+    window.livewire.on('msgok', msgOK => {
+        toastr.success(msgOK, "info")
+    })
+
+    window.livewire.on('msg-error', msgError => {
+        toastr.error(msgError, "info")
+    })
+</script>
