@@ -18,7 +18,7 @@ class CreateSalesTable extends Migration
             $table->foreignId('client_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->dateTime('sale_date');
-            $table->decimal('tax', 10, 2);
+            
             $table->decimal('total', 10, 2);
             $table->enum('status', ['VALID', 'CANCELED'])->default('VALID');
             $table->timestamps();

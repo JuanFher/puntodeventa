@@ -20,6 +20,7 @@ class CreateSaleDetailsTable extends Migration
             $table->integer('quantity');
             $table->decimal('price',10,2);
             $table->decimal('discount',10,2);
+            $table->foreignId('tax_id')->constrained();
             $table->timestamps();
         });
     }

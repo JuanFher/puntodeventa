@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->enum('status', ['ACTIVE', 'DEACTIVATED'])->default('ACTIVE');
             $table->foreignId('category_id')->constrained();
             $table->foreignId('provider_id')->constrained();
+            $table->foreignId('tax_id')->constrained();
             $table->timestamps();
         });
     }

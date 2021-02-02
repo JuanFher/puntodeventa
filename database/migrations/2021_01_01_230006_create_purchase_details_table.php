@@ -20,6 +20,7 @@ class CreatePurchaseDetailsTable extends Migration
             $table->decimal('sell_price',10,2);
             $table->decimal('buy_price',10,2);
             $table->integer('quantity');
+            $table->foreignId('tax_id')->constrained();
             $table->timestamps();
         });
     }

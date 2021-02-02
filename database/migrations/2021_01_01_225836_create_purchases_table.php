@@ -20,7 +20,6 @@ class CreatePurchasesTable extends Migration
             $table->enum('type', ['FACTURA', 'RECIBO', 'PROFORMA'])->default('FACTURA');
             $table->string('number_fact')->nullable();
             $table->dateTime('purchase_date');
-            $table->decimal('tax', 10, 2);
             $table->decimal('total', 10, 2);
             $table->enum('status', ['PENDING', 'CANCELED'])->default('PENDING');
             $table->string('picture')->nullable();
