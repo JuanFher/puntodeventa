@@ -20,9 +20,14 @@
                 Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item">
-                <i class="fas fa-power-off text-primary"></i>
-                Logout
+              <form id="form1" class="form-horizontal" method="POST" action="{{ route('logout') }}">
+                     {{ csrf_field() }} 
+              </form>
+              <a class="dropdown-item" onclick="document.getElementById('form1').submit();" href="javascript:void(0)">
+                <i class="fas fa-power-off text-primary">
+                
+                  Salir
+                </i>
               </a>
             </div>
           </li>
