@@ -21,6 +21,7 @@ class CreatePurchasesTable extends Migration
             $table->string('number_fact')->nullable();
             $table->dateTime('purchase_date');
             $table->decimal('total', 10, 2);
+            $table->float('tax', 7,2);
             $table->enum('status', ['PENDING', 'CANCELED'])->default('PENDING');
             $table->string('picture')->nullable();
             $table->timestamps();

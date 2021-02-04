@@ -18,6 +18,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'sell_price' => $faker->numberBetween($min = 100, $max = 900), 
         'category_id' => Category::all()->random()->id,
         'provider_id' => Provider::all()->random()->id,
-        'tax_id' => Tax::all()->random()->id,
+        
     ];
 });

@@ -26,41 +26,17 @@
                           <div class="row">
                             <div class="col-lg-2 grid-margin grid-margin-lg-0">
                               <div class="form-group">
-                                      <label for="code"><strong>Code</strong></label>
-                                      <input type="text" value="{{old('code')}}" name="code" id="code" class="form-control" placeholder="Ingrese el nombre de la Producto" autofocus required>
+                                      <label for="code"><strong>Código</strong></label>
+                                      <input type="text" value="{{old('code')}}" name="code" id="code" class="form-control" placeholder="Ingrese el código del Producto" autofocus required>
                                     </div>
                             </div>
                             <div class="col-lg-6 grid-margin grid-margin-lg-0">
-                              <div class="form-group">
+                                <div class="form-group">
                                       <label for="name"><strong>Nombre</strong></label>
-                                      <input type="text" value="{{old('name')}}" name="name" id="name" class="form-control" placeholder="Ingrese el nombre de la Producto" autofocus required>
-                                    </div>
-                            </div>
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                      <label for="stock"><strong>Stock</strong></label>
-                                      <input type="number" value="{{old('stock')}}" name="stock" id="stock" class="form-control" placeholder="Ingrese el stock del Producto" required>
+                                      <input type="text" value="{{old('name')}}" name="name" id="name" class="form-control" placeholder="Ingrese el nombre del Producto" autofocus required>
                                     </div>
                             </div>
                             <div class="col-lg-4 grid-margin grid-margin-lg-0">
-                              <div class="form-group">
-                                      <label for="sell_price"><strong>Precio de venta</strong></label>
-                                      <input type="number" value="{{old('sell_price')}}" name="sell_price" id="sell_price" class="form-control" placeholder="Ingrese el valor del Producto" required>
-                                    </div>
-                            </div>
-                            
-                                <div class="col-lg-4">
-                                  <div class="form-group">
-                                          <label for="category_id"><strong>Categoría</strong></label>
-                                          <select name="category_id" class="form-control form-control-lg">
-                                            <option>--- Seleccione uno ---</option>
-                                             @foreach ($categories as $category)
-                                              <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                          </select>
-                                        </div>
-                                </div>
-                                <div class="col-lg-4 grid-margin grid-margin-lg-0">
                                   <div class="form-group">
                                           <label for="provider_id"><strong>Proveedor</strong></label>
                                           <select name="provider_id" class="form-control form-control-lg">
@@ -71,11 +47,41 @@
                                           </select>
                                         </div>
                                 </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                      <label for="stock"><strong>Stock</strong></label>
+                                      <input type="number" value="{{old('stock')}}" name="stock" id="stock" class="form-control" placeholder="Ingrese el stock del Producto" required>
+                                    </div>
+                            </div>
+                            <div class="col-lg-3 grid-margin grid-margin-lg-0">
+                                <div class="form-group">
+                                      <label for="buy_price"><strong>Precio de compra</strong></label>
+                                      <input type="number" value="{{old('buy_price')}}" name="buy_price" id="buy_price" class="form-control" placeholder="Ingrese el valor del Producto" required>
+                                    </div>
+                            </div>
+                            <div class="col-lg-3 grid-margin grid-margin-lg-0">
+                                <div class="form-group">
+                                      <label for="sell_price"><strong>Precio de venta</strong></label>
+                                      <input type="number" value="{{old('sell_price')}}" name="sell_price" id="sell_price" class="form-control" placeholder="Ingrese el valor del Producto" required>
+                                    </div>
+                            </div>
+                            
+                                
+                                
+                                <div class="col-lg-3">
+                                  <div class="form-group">
+                                          <label for="category_id"><strong>Categoría</strong></label>
+                                          <select name="category_id" class="form-control form-control-lg">
+                                            <option>--- Seleccione uno ---</option>
+                                             @foreach ($categories as $category)
+                                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                          </select>
+                                        </div>
+                                </div>
                                 <div class="card-body">
                                     <h4 class="card-title d-flex">Imagen del producto
-                                      <small class="ml-auto align-self-end">
-                                        <a href="dropify.html" class="font-weight-light" target="_blank">Selecciona una imagen</a>
-                                      </small>
+                                      
                                     </h4>
                                     <input name="picture" id="picture" type="file" class="dropify" />
                                   </div>

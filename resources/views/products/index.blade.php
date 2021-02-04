@@ -57,7 +57,7 @@
                       <tbody>
                         @foreach ($products as $product)
                         	<tr>
-                            
+                              
                             <td scope="row">{{ $product->code }}</td>
                             <td>
                               <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
@@ -65,7 +65,7 @@
                             </td>
                             <td>{{ $product->stock }}</td>
                             <td>{{ $product->sell_price }}</td>
-                            <td>{{ $product->tax->name }}</td>
+                            
                             <td>{{ $product->status }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->provider->name }}</td>
@@ -84,7 +84,9 @@
                         
                       </tbody>
                     </table>
+
                   </div>
+                  {{$products->links()}}
                 </div>
               </div>
             </div>

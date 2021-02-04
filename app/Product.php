@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
     protected $fillable =[
-    	'code', 'name', 'stock', 'image', 'sell_price', 'buy_price', 'status', 'category_id', 'provider_id', 'tax_id'
+    	'code', 'name', 'stock', 'image', 'sell_price', 'buy_price', 'status', 'category_id', 'provider_id', 
     ];
 
     public function category()
@@ -28,4 +29,6 @@ class Product extends Model
     {
         return $this->belongsTo(Tax::class);
     }
+
+    
 }
