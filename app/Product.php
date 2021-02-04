@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable =[
-    	'code', 'name', 'stock', 'image', 'sell_price', 'buy_price', 'status', 'category_id', 'provider_id'
+    	'code', 'name', 'stock', 'image', 'sell_price', 'buy_price', 'status', 'category_id', 'provider_id', 'tax_id'
     ];
 
     public function category()
@@ -22,5 +22,10 @@ class Product extends Model
     public function purchaseDetails()
     {
         return $this->hasMany(PurchaseDetail::class);
+    }
+
+    public function tax()
+    {
+        return $this->belongsTo(Tax::class);
     }
 }

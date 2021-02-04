@@ -47,6 +47,7 @@
                             <th>NOMBRE</th>
                             <th>STOCK</th>
                             <th>PRECIO</th>
+                            <th>IMPUESTO</th>
                             <th>ESTADO</th>
                             <th>CATEGORÍA</th>
                             <th>PROVEEDOR</th>
@@ -64,6 +65,7 @@
                             </td>
                             <td>{{ $product->stock }}</td>
                             <td>{{ $product->sell_price }}</td>
+                            <td>{{ $product->tax->name }}</td>
                             <td>{{ $product->status }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->provider->name }}</td>

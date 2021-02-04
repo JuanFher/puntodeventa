@@ -11,12 +11,12 @@ use Livewire\Component;
 class Purchases extends Component
 {
 
-	public $provider_id, $type, $number_fact, $purchase_date, $tax = 12, $status, $picture;
-	public $product_id, $quantity, $sell_price, $buy_price, $subtotal, $total, $taxiva, $itemtotal;
-	public $selected_id, $search;
-	public $providers, $products, $provider;
-	public $orderProducts = [];
-	public $action = 1;
+	public $provider_id, $type, $number_fact, $purchase_date, $tax = 12, $picture; //array para tabla productos
+	public $product_id, $quantity, $sell_price, $buy_price, $subtotal, $total, $taxiva, $itemtotal; // variables para tabla detalle de producto
+	public $selected_id, $search; // seleccionar y buscar
+	public $providers, $products, $provider; // listados
+	public $orderProducts = []; // array detalle de productos
+	public $action = 1; 
 
 	public function mount()
 	{
@@ -60,18 +60,18 @@ class Purchases extends Component
     public function addProduct()
     {	
         if ($this->product_id == '' || $this->quantity == '' || $this->buy_price == '' || $this->sell_price == '' ) {
-            $this->emit('msg-error', 'Ingrese todos los campos para agregar un producto');
+                $this->emit('msg-error', 'Ingrese todos los campos para agregar un producto');
             }else{
-            $product               = Product::find($this->product_id);
-            $name                  = $product->name;
-            $this->itemtotal       = floatval($this->quantity) * floatval($this->buy_price);
-            $this->subtotal        = floatval($this->subtotal) + floatval($this->itemtotal);
-            $this->taxiva          = (floatval($this->subtotal) * floatval($this->tax))/100;
-            $this->total           = floatval($this->subtotal) + floatval($this->taxiva);
-            $orderProduct          = array('product_id' => $this->product_id,'name' => $name, 'quantity' => $this->quantity, 'buy_price' => $this->buy_price, 'sell_price' =>$this->sell_price, 'itemtotal' => $this->itemtotal);
-            $this->orderProducts[] = $orderProduct;
-            $this->emit('msgok', 'Agregado con éxito');
-            $this->resetInput();
+                $product               = Product::find($this->product_id);
+                $name                  = $product->name;
+                $this->itemtotal       = floatval($this->quantity) * floatval($this->buy_price);
+                $this->subtotal        = floatval($this->subtotal) + floatval($this->itemtotal);
+                $this->taxiva          = (floatval($this->subtotal) * floatval($this->tax))/100;
+                $this->total           = floatval($this->subtotal) + floatval($this->taxiva);
+                $orderProduct          = array('product_id' => $this->product_id,'name' => $name, 'quantity' => $this->quantity, 'buy_price' => $this->buy_price, 'sell_price' =>$this->sell_price, 'itemtotal' => $this->itemtotal);
+                $this->orderProducts[] = $orderProduct;
+                $this->emit('msgok', 'Agregado con éxito');
+                $this->resetInput();
             }
     }
 
@@ -97,15 +97,13 @@ class Purchases extends Component
 
         $order = Purchase::create([
             'provider_id' => $this->provider_id,
-            'user_id' => 1,
+            'user_id' => Auth()->user()->id,
             'type' => $this->type,
             'number_fact' => $this->number_fact,
             'purchase_date' => $this->purchase_date,
             'tax' => $this->tax,
             'total' => $this->total
         ]);
-
-        // dd($this->orderProducts);
 
         foreach ($this->orderProducts as $key => $product) {
             $results= array(
@@ -130,9 +128,7 @@ class Purchases extends Component
                 "buy_price"   =>$product['buy_price'],
             ]);
         }
-        // dd($results);
-        // $purchase->purchaseDetail()->createMany($results);
-        // dd($this->orderProducts);
+        
         session()->flash('message', 'Se ha actualizado el stock de los productos adquiridos.');
         return redirect()->route('purchases.index');
     }
