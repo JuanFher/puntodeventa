@@ -7,7 +7,7 @@
               </div>
               <div class="profile-name">
                 <p class="name">
-                  Welcome Jane
+                  {{ Auth()user()->name }}
                 </p>
                 <p class="designation">
                   Super Admin
