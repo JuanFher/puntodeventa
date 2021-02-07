@@ -1,70 +1,64 @@
 <div>
-    @if ($selected_id > 0)        
-	<div class="row">
-		<div class="col-12 grid-margin">
-			<div class="card">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="card-body">
-							<h5 class="mb-4" ><strong>Nombre del proveedor: </strong>
-							{{ $provider->name }}
-							</h5>
-							<button type="button" wire:click="doAction(0)"  class="btn btn-outline-secondary btn-rounded btn-icon float-right">
-								<i class="fas fa-trash text-danger"></i>
-							</button>
-							<p class="ml-5"><strong>Ruc: </strong>{{ $provider->ruc_number }}</p>
-							<p class="ml-5"><strong>Teléfono: </strong>{{ $provider->phone }}</p>
-							<p class="ml-5"><strong>Email: </strong>{{ $provider->email }}</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="card-body mb-3">
-							<label><strong>Tipo</strong></label>
-							<select id="type" class="form-control text-center" wire:model="type" >
-								<option value="Elegir">-- Selecione --</option>
-								<option value="FACTURA">FACTURA</option>
-								<option value="RECIBO">RECIBO</option>
-								<option value="PROFORMA">PROFORMA</option>
-							</select>
-							<div class="col-md-6 float-left mt-2">
-								<label>Fecha de compra</label>
-                        		<input class="form-control" type="date" wire:model="purchase_date" />
-							</div>
-							<div class="col-md-6 float-left mt-2">
-								<label>Número de Documento</label>
-                        		<input class="form-control" wire:model.lazy="number_fact" />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+@if ($selected_id > 0)
+    	<div class="row">
+    		<div class="col-12 grid-margin">
+    			<div class="card">
+    				<div class="row">
+    					<div class="col-md-6">
+    						<div class="card-body">
+    							<h5 class="mb-4"><strong>Nombre del Porveedor: </strong>{{ $provider->name }}</h5>
+    							<button class="btn- btn-outline-secondary btn-rounded btn-icon float-right" type="button" winre:click="doAction(0)">
+    								<i class="fas fa-trash text-danger"></i>
+    							</button>
+    							<p class="ml-5"><strong>Ruc:</strong> {{ $provider->ruc_number }} </p>
+    							<p class="ml-5"><strong>Telefono:</strong> {{ $provider->phone }} </p>
+    							<p class="ml-5"><strong>Email:</strong> {{ $provider->email }} </p>
+    						</div>
+    					</div>
+    					<div class="col-md-6">
+    						<div class="card-body mb-3">
+    							<label><strong>Tipo de documento:</strong></label>
+    							<select id="type" class="fomr-control text-center" wire:model="type">
+    								<option value="Elegir"> -- Selecione un tipo de documento -- </option>
+    								<option value="Factura"> Factura</option>
+    								<option value="Recibo"> Recibo</option>
+    								<option value="Proforma"> Proforma</option>
+    							</select>
+    							<div class="col-md-6 float-left mt-2">
+    								<label>Fecha de Compra</label>
+    								<input type="date" class="form-control text-center" wire:model="puchase_date">
+    							</div>
+    							<div class="col-md-6 float-left mt-2">
+    								<label>Numero de Documento</label>
+    								<input type="text" class="form-control text-center" wire:model="number_fact">
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
     @else
     	<div class="row">
-           <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="card-body">
-                      
-                      <label for="category_id"><strong>Proveedor</strong></label>
-						<select wire:model.lazy="selected_id" name="category_id" class="form-control form-control-lg">
-							<option>--- Seleccione uno ---</option>
-							@foreach ($providers as $provider)
-								<option value="{{ $provider->id }}">{{ $provider->name }}</option>
-							@endforeach
-						</select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    		<div class="col-12 grid-margin">    			
+    			<div class="card">
+    				<div class="row">
+    					<div class="col-md-6">
+    						<div class="card-body">
+    							<label><strong>Seleccione un proveedor</strong></label>
+    							<select wire:model="selected_id" class="">
+    								<option value="Elegir"> -- Selecione un proveedor -- </option>
+    								@foreach ($providers as $provider)
+    									<option value="{{$provider_id}}"> {{$provider->name}} </option>
+    								@endforeach
+    							</select>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    @endif
     @endif
 	<div class="form-control">
 		<div class="row">
