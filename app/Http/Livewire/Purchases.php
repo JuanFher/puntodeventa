@@ -10,7 +10,6 @@ use Livewire\Component;
 
 class Purchases extends Component
 {
-
 	public $provider_id, $type, $number_fact, $purchase_date, $tax = 12, $picture; //array para tabla productos
 	public $product_id, $quantity, $sell_price, $buy_price, $subtotal, $total, $taxiva, $itemtotal; // variables para tabla detalle de producto
 	public $selected_id, $search; // seleccionar y buscar
@@ -18,10 +17,6 @@ class Purchases extends Component
 	public $orderProducts = []; // array detalle de productos
 	public $action = 1; 
 
-	public function mount()
-	{
-		
-	}
     public function render()
     {
     	$this->orderProducts;
@@ -55,7 +50,6 @@ class Purchases extends Component
         $this->buy_price  = null;
         $this->sell_price = null;
     }
-
 
     public function addProduct()
     {	
@@ -132,6 +126,4 @@ class Purchases extends Component
         session()->flash('message', 'Se ha actualizado el stock de los productos adquiridos.');
         return redirect()->route('purchases.index');
     }
-
-
 }

@@ -31,7 +31,7 @@
                         <h4 class="card-title">Registro de compra</h4>
                     </div>
                     
-                    <livewire:purchases />
+                    @livewire('purchases')
                   
                   
                 </div>

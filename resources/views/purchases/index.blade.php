@@ -2,11 +2,11 @@
 @section('title', 'Lista de Compras')
 @section('styles')
 <style type="text/css">
-.unstyled-button{
-border: none;
-padding: 0;
-background: none;
-}
+    .unstyled-button{
+    border: none;
+    padding: 0;
+    background: none;
+    }
 </style>
 @endsection
 @section('content')
@@ -84,6 +84,6 @@ background: none;
 </div>
 @endsection
 @section('scripts')
-<script src="{{asset ('assets/js/data-table.js')}}"></script>
+    <script src="{{asset ('assets/js/data-table.js')}}"></script>
 
 @endsection
