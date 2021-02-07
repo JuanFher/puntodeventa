@@ -45,7 +45,7 @@
     				<div class="row">
     					<div class="col-md-6">
     						<div class="card-body">
-    							<label><strong>Seleccione un proveedor</strong></label>
+    							<label><strong>Seleccione unsrtwertre proveedor</strong></label>
     							<select wire:model="selected_id" class="">
     								<option value="Elegir"> -- Selecione un proveedor -- </option>
     								@foreach ($providers as $provider)
