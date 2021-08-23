@@ -19,7 +19,7 @@ class Purchases extends Component
 
     public function render()
     {
-    	$this->orderProducts;
+    	
     	$this->products = Product::all();
     	$this->providers = Provider::all();
     	if ($this->selected_id > 0) {
@@ -62,7 +62,12 @@ class Purchases extends Component
                 $this->subtotal        = floatval($this->subtotal) + floatval($this->itemtotal);
                 $this->taxiva          = (floatval($this->subtotal) * floatval($this->tax))/100;
                 $this->total           = floatval($this->subtotal) + floatval($this->taxiva);
-                $orderProduct          = array('product_id' => $this->product_id,'name' => $name, 'quantity' => $this->quantity, 'buy_price' => $this->buy_price, 'sell_price' =>$this->sell_price, 'itemtotal' => $this->itemtotal);
+                $orderProduct          = array('product_id' => $this->product_id,
+                                               'name' => $name, 
+                                               'quantity' => $this->quantity, 
+                                               'buy_price' => $this->buy_price, 
+                                               'sell_price' =>$this->sell_price, 
+                                               'itemtotal' => $this->itemtotal);
                 $this->orderProducts[] = $orderProduct;
                 $this->emit('msgok', 'Agregado con éxito');
                 $this->resetInput();
